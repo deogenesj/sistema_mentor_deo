@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
+Route::get('/', [UsuarioController::class, "home"]);
+Route::post('/cadastrar', [UsuarioController::class, 'cadastrar']);
+
+Route::post('/cadastrar_alternativo', [UsuarioController::class, 'cadastrar_alternativo']);
